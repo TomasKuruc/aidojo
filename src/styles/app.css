@@ -1,0 +1,406 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-border: #dee2e6;
+  --color-text: #212529;
+  --color-text-muted: #6c757d;
+  --color-primary: #4361ee;
+  --color-primary-hover: #3a56d4;
+  --color-ok: #2d6a4f;
+  --color-ok-bg: #d8f3dc;
+  --color-err: #d00000;
+  --color-err-bg: #fde8e8;
+  --color-ill: #e85d04;
+  --color-ill-bg: #fff3cd;
+  --color-amb: #7209b7;
+  --color-amb-bg: #f3e8ff;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.app-header p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Example Loader --- */
+
+.example-loader {
+  margin-bottom: 1rem;
+}
+
+.example-loader label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.example-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.example-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--color-text);
+}
+
+.example-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* --- OCR Input --- */
+
+.ocr-input-section {
+  margin-bottom: 1.5rem;
+}
+
+.ocr-input-section label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ocr-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 0.75rem;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  resize: vertical;
+  white-space: pre;
+  overflow-x: auto;
+  tab-size: 4;
+}
+
+.ocr-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+/* --- Process Button --- */
+
+.process-btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 2rem;
+}
+
+.process-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+.process-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Results --- */
+
+.results-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.result-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.result-card + .result-card {
+  margin-top: 1rem;
+}
+
+/* --- Account Number Display --- */
+
+.account-number-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.account-number {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* --- Status Badge --- */
+
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge--ok {
+  background: var(--color-ok-bg);
+  color: var(--color-ok);
+}
+
+.status-badge--err {
+  background: var(--color-err-bg);
+  color: var(--color-err);
+}
+
+.status-badge--ill {
+  background: var(--color-ill-bg);
+  color: var(--color-ill);
+}
+
+.status-badge--amb {
+  background: var(--color-amb-bg);
+  color: var(--color-amb);
+}
+
+/* --- Details --- */
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+}
+
+.result-detail {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.result-detail-label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.result-detail-value {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+}
+
+.repaired-account {
+  color: var(--color-ok);
+  font-weight: 600;
+}
+
+.alternatives-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.alternative-tag {
+  padding: 0.15rem 0.5rem;
+  background: var(--color-amb-bg);
+  color: var(--color-amb);
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.82rem;
+}
+
+/* --- Checksum Detail --- */
+
+.checksum-detail {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.checksum-formula {
+  color: var(--color-text-muted);
+  word-break: break-all;
+}
+
+.checksum-result {
+  color: var(--color-err);
+  font-weight: 600;
+}
+
+.ok-reason,
+.err-reason,
+.ill-reason,
+.amb-reason {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.ok-reason {
+  color: var(--color-ok);
+}
+
+.err-reason {
+  color: var(--color-err);
+  margin-bottom: 0.3rem;
+}
+
+.ill-reason {
+  color: var(--color-ill);
+}
+
+.amb-reason {
+  color: var(--color-amb);
+}
+
+.ok-reason code,
+.amb-reason code {
+  background: #f1f3f5;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.82rem;
+}
+
+/* --- OCR Preview --- */
+
+.ocr-preview {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  white-space: pre;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+/* --- Formatted Output --- */
+
+.formatted-output {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #f1f3f5;
+  border-radius: 6px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.85rem;
+}
+
+/* --- Digit Breakdown --- */
+
+.digit-breakdown {
+  margin-top: 0.75rem;
+}
+
+.digit-breakdown-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.digit-grid {
+  display: flex;
+  gap: 2px;
+}
+
+.digit-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 44px;
+}
+
+.digit-cell-pattern {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  white-space: pre;
+  text-align: center;
+}
+
+.digit-cell-value {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.digit-cell-value--illegible {
+  color: var(--color-err);
+}
+
+/* --- Empty State --- */
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
